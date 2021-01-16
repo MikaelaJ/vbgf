@@ -9,6 +9,7 @@
     "generate": "nuxt generate"
   },
   "dependencies": {
+    "@babel/highlight": "^7.10.4",
     "@babel/polyfill": "^7.12.1",
     "@babel/runtime": "^7.12.5",
     "@mdi/font": "^5.8.55",
