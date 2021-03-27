@@ -12,13 +12,15 @@
     "@babel/highlight": "^7.10.4",
     "@babel/polyfill": "^7.12.1",
     "@babel/runtime": "^7.12.5",
+    "@contentful/rich-text-html-renderer": "^14.1.2",
     "@mdi/font": "^5.8.55",
-    "contentful": "^8.1.6",
+    "babel-runtime": "^6.26.0",
+    "contentful": "^8.1.7",
     "core-js": "^3.6.5",
     "highlight.js": "^10.5.0",
+    "marked": "^2.0.1",
     "nuxt": "^2.14.6",
-    "vue-markdown": "^2.2.4",
-    "vue-markdown-v2": "^0.1.7"
+    "vue-markdown": "^2.1.2"
   },
   "devDependencies": {
     "@babel/cli": "^7.12.10",

@@ -4,12 +4,13 @@
     <v-container>
       <Nuxt />
     </v-container>
-    <v-footer
+    <Footer />
+    <!-- <v-footer
       :absolute="!fixed"
       app
     >
       <span>&copy; {{ new Date().getFullYear() }}</span>
-    </v-footer>
+    </v-footer> -->
   </v-app>
 </template>
 
