@@ -136,25 +136,22 @@
         </div>
       </v-col>
     </v-row>
+      <h2>Blog</h2>
     <v-row>
-      <v-col cols="12" sm="12" md="10">
-        <h2 class="mb-4">Blogg</h2>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet,
-          consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-          labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-          exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+      <v-col 
+      v-for="(post, i) in blog"
+          :key="`${i}-${post.fields.text}`"
+      cols="12" sm="12" md="10">
+        <h3 v-html="compiledMarkdown(post.fields.title)" class="Vlilac--text mb-4"></h3>
+        <p v-html="compiledMarkdown(post.fields.text)">
         </p>
         <v-row>
           <v-col>
-            <p><strong> Håkan Wiek </strong></p>
+            <p class="Vlilac--text"><strong v-html="compiledMarkdown(post.fields.author)" ></strong></p>
           </v-col>
           <v-spacer></v-spacer>
           <v-col class="text-right">
-            <p><em> 2020-03-27 </em></p>
+            <p class="Vlilac--text"><em v-html="compiledMarkdown(post.sys.updatedAt).substr(0, 13)"></em></p>
           </v-col>
         </v-row>
         <hr>
@@ -179,11 +176,13 @@ export default {
   computed: {
     ...mapState("getpage", ["index"]),
     ...mapState("getpage", ["carouselStartsida"]),
+    ...mapState("getpage", ["blog"]),
   },
   async created() {
     await this.getPage({ content_type: "index" });
     await this.getPage({ content_type: "carouselStartsida" });
-    console.log(this.carouselStartsida);
+    await this.getPage({ content_type: "blog" });
+    console.log(this.blog);
   },
   methods: {
     ...mapActions("getpage", ["getPage"]),

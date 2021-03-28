@@ -6,7 +6,8 @@ export const state = () => ({
   index: [],
   punktlista: [],
   infoStartsida: [],
-  carouselStartsida: []
+  carouselStartsida: [],
+  blog: []
 })
 
 export const mutations = {
