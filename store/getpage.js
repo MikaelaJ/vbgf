@@ -3,10 +3,8 @@ import { createClient } from '../plugins/contentful'
 const client = createClient()
 
 export const state = () => ({
-  index: [],
-  punktlista: [],
-  infoStartsida: [],
-  carouselStartsida: [],
+  information: [],
+  carousel: [],
   blog: []
 })
 

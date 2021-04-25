@@ -8,7 +8,7 @@
     <v-container class="pa-0 ma-0" fluid>
       <v-carousel hide-delimiter-background height="500" cycle interval="8000">
         <v-carousel-item
-          v-for="(carousel, i) in carouselStartsida"
+          v-for="(carousel, i) in carousel"
           :key="`${i}-${carousel.fields.text}`"
           :src="carousel.fields.image.fields.file.url"
           reverse-transition="fade-transition"
@@ -27,12 +27,12 @@
               class="mt-12"
               min-width="250px"
             >
-              <v-card-title v-html="compiledMarkdown(carousel.fields.titel)" class="Vdark--text px-6 pb-0 title"></v-card-title>
+              <v-card-title v-html="compiledMarkdown(carousel.fields.title)" class="Vdark--text px-6 pb-0 title"></v-card-title>
               <!-- <p class="Vdark--text pb-3 px-3 text-karusell"
                 >Text</p
               > -->
               <p
-            v-html="compiledMarkdown(carousel.fields.longtext)"
+            v-html="compiledMarkdown(carousel.fields.text)"
             class="Vdark--text pb-3 px-6"
           ></p>
               <!-- <figcaption align="end" class="Vgrey--text pr-3 pb-3">
@@ -70,7 +70,7 @@
 
     <v-row>
       <v-col
-        v-for="(program, i) in index"
+        v-for="(program, i) in information"
         :key="`${i}-${program.fields.text}`"
         cols="12"
         sm="8"
@@ -174,13 +174,13 @@ export default {
   },
 
   computed: {
-    ...mapState("getpage", ["index"]),
-    ...mapState("getpage", ["carouselStartsida"]),
+    ...mapState("getpage", ["information"]),
+    ...mapState("getpage", ["carousel"]),
     ...mapState("getpage", ["blog"]),
   },
   async created() {
-    await this.getPage({ content_type: "index" });
-    await this.getPage({ content_type: "carouselStartsida" });
+    await this.getPage({ content_type: "information" });
+    await this.getPage({ content_type: "carousel" });
     await this.getPage({ content_type: "blog" });
     console.log(this.blog);
   },
